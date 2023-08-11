@@ -1,18 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'polls/base.html' %}
+{% block content %}
     <h1>Đây là template</h1>
     <p>Hello World</p>
     <p>Chào các bạn mình là <b> {{ name }} </b> </p>
     <h2>Tài sản của tôi gồm</h2>
     <ul>
         {% for item in taisan %}
-        <li>{{ item }}</li>
+            {% if item != 'Máy tính' %}
+                <li>{{ item }}</li>
+            {% endif %}
         {% endfor %}
     </ul>
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'polls/base.html' %}
+
+{% block content %}
+    {% if dsquest %}
+        {% for item in dsquest %}
+            <p>
+                {{ item.question_text }}
+            </p>
+        {% endfor %}
+    {% else %}
+        <h3 style="color: red">Không có dữ liệu câu hỏi nào!</h3>
+    {% endif %}
+{% endblock %}

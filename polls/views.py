@@ -24,5 +24,18 @@ def detailView(request, question_id):
     return render(request, "polls/detail_question.html", {"qs": q})
 
 
+def vote(request, question_id):
+    q = Question.objects.get(pk=question_id)
+    try:
+        dulieu = request.POST["choice"]
+        c = q.choice_set.get(pk=dulieu)
+    except:
+        return HttpResponse("Lỗi ko có choice")
+    c.vote = c.vote + 1
+    c.save()
+    # return HttpResponse(c.vote)
+    return render(request, "polls/result.html", {"q": q})
+
+
 def abc(request):
     return HttpResponse("PYTHON DJANGO")

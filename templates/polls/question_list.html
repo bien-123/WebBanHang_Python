@@ -3,9 +3,11 @@
 {% block content %}
     {% if dsquest %}
         {% for item in dsquest %}
-            <p>
-                {{ item.question_text }}
-            </p>
+            <a href="{% url 'detailView' item.id %}">
+                <p>
+                    {{ item.question_text }}
+                </p>
+            </a>
         {% endfor %}
     {% else %}
         <h3 style="color: red">Không có dữ liệu câu hỏi nào!</h3>

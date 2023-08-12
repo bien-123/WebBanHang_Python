@@ -20,6 +20,7 @@
             float: left;
             padding: 6px 8px;
         }
+
         .menu ul {
             list-style-type: none;
         }
@@ -35,6 +36,11 @@
             display: table;
             content: "";
         }
+
+        .menu_item li a {
+            color: #ffffff;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
@@ -42,10 +48,10 @@
     <h1>My website</h1>
 </div>
 <div class="menu">
-    <ul>
-        <li>Link 1</li>
-        <li>Link 2</li>
-        <li>Link 3</li>
+    <ul class="menu_item">
+        <li><a href="{% url 'index' %}">Link 1</a></li>
+        <li><a href="{% url 'list' %}">Link 2</a></li>
+        <li><a href="{% url 'index' %}">Link 3</a></li>
     </ul>
 </div>
 <div class="content">

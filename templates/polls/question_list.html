@@ -3,7 +3,7 @@
 {% block content %}
     {% if dsquest %}
         {% for item in dsquest %}
-            <a href="{% url 'detailView' item.id %}">
+            <a href="{% url 'polls:detailView' item.id %}">
                 <p>
                     {{ item.question_text }}
                 </p>

@@ -19,5 +19,10 @@ def viewlist(request):
     return render(request, "polls/question_list.html", context)
 
 
+def detailView(request, question_id):
+    q = Question.objects.get(pk=question_id)
+    return render(request, "polls/detail_question.html", {"qs": q})
+
+
 def abc(request):
     return HttpResponse("PYTHON DJANGO")

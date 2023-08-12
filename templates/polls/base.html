@@ -4,27 +4,53 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        .header{
+        .header {
             padding: 30px;
             background-color: #ccc;
             color: #fff;
         }
+
+        .menu {
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .menu ul li {
+            float: left;
+            padding: 6px 8px;
+        }
+        .menu ul {
+            list-style-type: none;
+        }
+
+        .menu ul li:hover {
+            background-color: #cccccc;
+            color: #000;
+            cursor: pointer;
+        }
+
+        .menu:after {
+            clear: both;
+            display: table;
+            content: "";
+        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>My website</h1>
-    </div>
-    <div class="menu">
-        <ul>
-            <li>Link 1</li>
-            <li>Link 2</li>
-            <li>Link 3</li>
-        </ul>
-    </div>
-    <div class="content">
-        {% block content %}
-        {% endblock %}
-    </div>
+<div class="header">
+    <h1>My website</h1>
+</div>
+<div class="menu">
+    <ul>
+        <li>Link 1</li>
+        <li>Link 2</li>
+        <li>Link 3</li>
+    </ul>
+</div>
+<div class="content">
+    {% block content %}
+    {% endblock %}
+</div>
 </body>
 </html>

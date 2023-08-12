@@ -3,12 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        .sonnguyen{
+            padding: 40px;
+        }
+    </style>
 </head>
 <body>
-    <form action="{% url 'news:process' %}" method="post">
-        {% csrf_token %}
-        {{ f }}
-        <input type="submit" value="Gửi mail">
-    </form>
+<form action="{% url 'news:process' %}" method="post">
+    {% csrf_token %}
+    <p>{{ f.title }}</p>
+    <p>{{ f.content }}</p>
+    <p>{{ f.email }}</p>
+    <p>{{ f.cc }}</p>
+    <input type="submit" value="Gửi mail">
+</form>
 </body>
 </html>

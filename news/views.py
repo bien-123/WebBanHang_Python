@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from .forms import PostForm, SendEmail
 from django.views import View
 
+
 # Create your views here.
 
 class IndexClass(View):
@@ -11,13 +12,17 @@ class IndexClass(View):
         return HttpResponse(ketqua)
 
 
-class PostClass(View):
+# class PostClass(View):
+#     def get(self, request):
+#         a = PostForm()
+#         return render(request, 'news/add_news.html', {'f': a})
+
+
+class ClassSaveNews(View):
     def get(self, request):
         a = PostForm()
         return render(request, 'news/add_news.html', {'f': a})
 
-
-class ClassSaveNews(View):
     def post(self, request):
         g = PostForm(request.POST)
         if g.is_valid():
@@ -26,6 +31,8 @@ class ClassSaveNews(View):
         else:
             return HttpResponse('Không được validate')
 
+    def put(self, request):
+        pass
 
 def email_view(request):
     b = SendEmail()

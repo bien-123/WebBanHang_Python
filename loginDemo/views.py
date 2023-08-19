@@ -3,6 +3,7 @@ from django.views import View
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, decorators
 from django.contrib.auth.mixins import LoginRequiredMixin
+from .forms import PostForm
 
 
 # Create your views here.
@@ -28,7 +29,7 @@ class LoginClass(View):
 
 
 class ViewUser(LoginRequiredMixin, View):
-    login_url = '/login/'
+    login_url = '/demo/login/'
 
     def get(self, request):
         # if not request.user.is_authenticated:
@@ -41,6 +42,26 @@ class ViewUser(LoginRequiredMixin, View):
         pass
 
 
-@decorators.login_required(login_url='/login/')
+@decorators.login_required(login_url='/demo/login/')
 def view_product(request):
     return HttpResponse('Xem san pham')
+
+
+class AddPost(LoginRequiredMixin, View):
+    login_url = '/demo/login/'
+
+    def get(self, request):
+        f = PostForm()
+        context = {'f': f}
+        return render(request, 'demo/add_post.html', context)
+
+    def post(self, request):
+        f = PostForm(request.POST)
+        if not f.is_valid():
+            return HttpResponse('Ban nhap sai du lieu roi') #nếu nhập vào ko đúng kiểu dl trong model
+        print(request.user.get_all_permissions) #xem các quyen cua user
+        if request.user.has_perm('loginDemo.add_bai_viet'):#viet thuong ten model
+            f.save()
+        else:
+            return HttpResponse('Ban khong co quyen')
+        return HttpResponse('OK')

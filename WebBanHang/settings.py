@@ -40,7 +40,8 @@ INSTALLED_APPS = [
 
     'polls.apps.PollsConfig',
     'news',
-    'login'
+    'login',
+    'loginDemo',
 ]
 
 MIDDLEWARE = [

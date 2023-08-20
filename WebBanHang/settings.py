@@ -110,7 +110,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTH_USER_MODEL = 'loginDemo.MyUser'
+# AUTH_USER_MODEL = 'loginDemo.MyUser'
+AUTH_USER_MODEL = 'user.CustomerUser'
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 

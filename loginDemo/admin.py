@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import BaiViet, MyUser
+from .models import BaiViet
+    # , MyUser
 
 # Register your models here.
 

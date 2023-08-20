@@ -42,6 +42,12 @@ INSTALLED_APPS = [
     'news',
     'login',
     'loginDemo',
+
+    # app shop ban hang
+    'product',
+    'cart',
+    'order',
+    'user'
 ]
 
 MIDDLEWARE = [
